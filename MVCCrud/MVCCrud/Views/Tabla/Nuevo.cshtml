@@ -1,0 +1,44 @@
+﻿@model MVCCrud.Models.ViewModels.TablaViewModel
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("Nuevo","Tabla",FormMethod.Post)) {
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            @Html.LabelFor(d => d.NOMBRE)
+            @Html.TextBoxFor(d => d.NOMBRE, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.NOMBRE, null, new { @class = "red" })
+        </div>
+        <div>
+            @Html.LabelFor(d => d.APELLIDO_P)
+            @Html.TextBoxFor(d => d.APELLIDO_P, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.APELLIDO_P, null, new { @class = "red" })
+        </div>
+        <div>
+            @Html.LabelFor(d => d.APELLIDO_M)<br />
+            @Html.TextBoxFor(d => d.APELLIDO_M, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.APELLIDO_M, null, new { @class = "red" })
+        </div>
+        <div>
+            @Html.LabelFor(d => d.EDAD)<br />
+            @Html.TextBoxFor(d => d.EDAD, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.EDAD, null, new { @class = "red" })
+        </div>
+        <div>
+            @Html.LabelFor(d => d.IsActive)<br />
+            @Html.TextBoxFor(d => d.IsActive, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.IsActive, null, new { @class = "red" })
+        </div>
+        <br />
+        <div style="text-align:right;">
+            <input value="Guardar" class="btn btn-primary" type="submit" />
+        </div>
+    </div>
+
+</div>
+}
