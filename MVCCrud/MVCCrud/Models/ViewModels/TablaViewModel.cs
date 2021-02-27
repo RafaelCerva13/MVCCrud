@@ -10,21 +10,18 @@ namespace MVCCrud.Models.ViewModels
     {
 
         public int ID { get; set; }
-        [Required]
-        [StringLength(50)]
-        
+
+       
         public string NOMBRE { get; set; }
-        [Required]
-        [StringLength(15)]
+       
         public string APELLIDO_P { get; set; }
-        [Required]
-        [StringLength(15)]
+
         public string APELLIDO_M { get; set; }
-        [Required]
-        [StringLength(15)]
+        
 
         public int EDAD { get; set; }
-        [Required]
+        
+        
         public bool IsActive { get; set; }
      
 

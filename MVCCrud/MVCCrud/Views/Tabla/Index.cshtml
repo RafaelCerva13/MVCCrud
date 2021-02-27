@@ -5,38 +5,48 @@
 
 <h2>@ViewBag.Title</h2>
 
-<div class="row" style="text-align:right;padding:5px;">
-    <a href="~/Tabla/Nuevo" class="btn btn-primary">Nuevo</a>
-</div>
+
 <div class="row">
     <div class="col-md-12">
-        <table class="table">
-            <tr>
-                <th>ID:</th>
-                <th>NOMBRE</th>
-                <th>APELLIDO_P</th>
-                <th>APELLIDO_M</th>
-                <th>EDAD</th>
-                <th>IsActive</th>
-                <th></th>
-            </tr>
+      <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">APELLIDO PATERNO</th>
+                    <th scope="col">APELLIDO MATERNO</th>
+                    <th scope="col">EDAD</th>
+                    <th scope="col">IsActive</th>
+                    <th scope="col"> </th>
+                    <th scope="col"> </th>
+
+                </tr>
+            </thead>
             @foreach (var oElemento in Model)
             {
-        <tr>
-            <td>@oElemento.ID</td>
-            <td>@oElemento.NOMBRE</td>
-            <td>@oElemento.APELLIDO_P</td>
-            <td>@oElemento.APELLIDO_M</td>
-            <td>@oElemento.EDAD</td>
-            <td>@oElemento.IsActive</td>
-            <td>
-                <a class="btn btn-default" href="~/Tabla/Editar/@oElemento.ID">Editar</a>
-                <a class="btn btn-danger" href="~/Tabla/Eliminar/@oElemento.ID">Eliminar</a>
-            </td>
-           </tr>
+                <tr>
+                    <td>@oElemento.ID</td>
+                    <td>@oElemento.NOMBRE</td>
+                    <td>@oElemento.APELLIDO_P</td>
+                    <td>@oElemento.APELLIDO_M</td>
+                    <td>@oElemento.EDAD</td>
+                    <td>@oElemento.IsActive</td>
+                    <td>
+                        <a class="btn btn-default" href="~/Tabla/Editar/@oElemento.ID">Editar</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" href="~/Tabla/Eliminar/@oElemento.ID">Eliminar</a>
+                    </td>
+                  
+                </tr>
 
             }
         </table>
+        <div class="row" style="text-align:right;padding:3px;">
+            <center>
+                <a href="~/Tabla/Nuevo" class="btn btn-primary">Agregar</a>
+            </center>
+        </div>
     </div>
 
 </div>

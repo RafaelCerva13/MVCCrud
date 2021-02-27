@@ -13,7 +13,13 @@ namespace MVCCrud.Controllers
         // GET: Tabla
         public ActionResult Index()
         {
-            List<ListTablaViewModel> lst;
+            //CreateStoreProcedure("PERSONAL_AGREGAR", d => new { ID = d.ID() },
+            //   @"SELECT ID, NOMBRE, APELLIDO_P, APELLIDO_M, EDAD, IsActive
+            //   WHERE ID = @ID");
+
+           List <ListTablaViewModel> lst;
+           
+
             using (CRUDREntities db = new CRUDREntities())
             {
                 lst = (from d in db.PERSONAL
@@ -23,10 +29,11 @@ namespace MVCCrud.Controllers
                                NOMBRE = d.NOMBRE,
                                APELLIDO_P = d.APELLIDO_P,
                                APELLIDO_M = d.APELLIDO_M,
-                               EDAD =(int) d.EDAD,
-                               IsActive = (bool) d.IsActive
+                               EDAD =d.EDAD.Value,
+                               IsActive =d.IsActive.Value
                            }).ToList();
             }
+          
 
             return View(lst);
         }
@@ -51,7 +58,7 @@ namespace MVCCrud.Controllers
                         oTabla.NOMBRE = model.NOMBRE;
                         oTabla.APELLIDO_P = model.APELLIDO_P;
                         oTabla.APELLIDO_M = model.APELLIDO_M;
-                     oTabla.EDAD = model.EDAD;
+                        oTabla.EDAD = model.EDAD;
                         oTabla.IsActive = model.IsActive;
 
                         db.PERSONAL.Add(oTabla);
@@ -80,8 +87,8 @@ namespace MVCCrud.Controllers
                 model.NOMBRE = oTabla.NOMBRE;
                 model.APELLIDO_P = oTabla.APELLIDO_P;
                 model.APELLIDO_M = oTabla.APELLIDO_M;
-                model.EDAD =(int)oTabla.EDAD;
-                model.IsActive = (bool) oTabla.IsActive;
+                model.EDAD =oTabla.EDAD.Value;
+                model.IsActive = oTabla.IsActive.Value;
             }
             return View(model);
         }
@@ -106,6 +113,7 @@ namespace MVCCrud.Controllers
                         db.SaveChanges();
                     }
 
+                    
                     return Redirect("~/Tabla/");
                 }
 
@@ -128,6 +136,7 @@ namespace MVCCrud.Controllers
                 var oTabla = db.PERSONAL.Find(ID);
                 db.PERSONAL.Remove(oTabla);
                 db.SaveChanges();
+             
             }
             return Redirect("~/Tabla/");
         }

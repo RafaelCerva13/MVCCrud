@@ -26,18 +26,19 @@
         </div>
         <div>
             @Html.LabelFor(d => d.EDAD)<br />
-            @Html.TextBoxFor(d => d.EDAD, "", new { @class = "form-control" })
+            @Html.TextBoxFor(d => d.EDAD, new { @class = "form-control" })
             @Html.ValidationMessageFor(d => d.EDAD, null, new { @class = "red" })
         </div>
         <div>
             @Html.LabelFor(d => d.IsActive)<br />
-            @Html.TextBoxFor(d => d.IsActive, "", new { @class = "form-control" })
+            @Html.TextBoxFor(d => d.IsActive, new { @class = "form-control" })
             @Html.ValidationMessageFor(d => d.IsActive, null, new { @class = "red" })
         </div>
         <br />
         <div style="text-align:right;">
             <input value="Guardar" class="btn btn-primary" type="submit" />
         </div>
+
     </div>
 
 </div>
